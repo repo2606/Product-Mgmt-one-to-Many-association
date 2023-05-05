@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts::fooheader"></head>
+
+<body>
+
+<nav th:replace="layouts::deepak"></nav>
+
+
+<div class="container">
+		<form action="/products/save" th:object="${product}" method="POST">
+		
+		
+		<input type="text" placeholder="Product Name" th:field="${product.name}">
+		
+		
+		<select th:field="${product.category}">
+			<option th:value="purchase"> purchased</option>
+			<option th:value="Awaiting"> Not yet</option>
+			<option th:value="Maybelater">wish list</option>
+		</select>
+		
+		
+		<textarea type="text" placeholder="Enter Product Description" th:field="${product.description}"></textarea>
+		
+      <select th:field="${product.customer}" multiple="multiple">
+       <option th:each="Acustomer:${allCustomer}"
+                th:value="${Acustomer.customerId}"
+                th:text="${Acustomer.firstName}">
+       
+      </option>
+      
+      </select>
+      
+      
+      
+      <button type="submit">Create Product</button>
+      
+		</form>
+</div>
+
+</body>
+
+
+</html>
+
+
+
+<!--     
+	
+ <select th:field="${product.customer}", spring knows customer is a member variable of product object	
+ 
+  	<select th:field="${product.customer}-> product entity class holds ""customer"" as memeber variable so we used  "${product.customer}
+	
+	
+	 <option th:each="customer:${allCustomer}" ->iterating through list of  customerobject 
+	 which was sent from productcontroller through model
+	   th:value="${customer.customerId}"-> customerId is assigned to value 
+	   th:text="${Acustomer.firstName}"-? text is assigned to firstName
+	   
+	   As we click the customer firstname displayd in select list, corresponding customerId will be assigned to value and it is passed
+	   as requestparamter in url along along with product object
+	   
+	   query parameter will have name  as "customer" because we have used  members variable as customer in product object <select th:field="${product.customer} check in developer console in network 
+	
+
+	
+-->

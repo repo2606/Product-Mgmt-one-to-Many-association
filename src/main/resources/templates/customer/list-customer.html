@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head th:replace="layouts :: fooheader"></head>
+	
+	<body>
+	
+	<nav th:replace="layouts :: deepak"></nav>
+	
+		<div class="container">
+			<h3>Customer Directory</h3>
+			<hr>
+			
+			<!--  Add New Customer Button -->
+			<a th:href="@{/customers/new}"
+				class="btn btn-primary btn-sm mb-3"> 
+				Add Customer
+			</a> 
+			<br></br>
+			
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+					</tr>
+				</thead>		
+				<tbody>
+					<tr th:each="bCustomer : ${customers}">
+						<td th:text="${bCustomer .firstName}"/>
+						<td th:text="${bCustomer .lastName}"/>
+						<td th:text="${bCustomer.email}"/>
+					</tr>
+				</tbody>
+			
+			</table>
+		</div>
+	</body>
+	
+</html>

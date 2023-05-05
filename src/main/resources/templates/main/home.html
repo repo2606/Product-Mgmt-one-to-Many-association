@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="layouts::fooheader"></head>
+
+<body>
+
+<nav th:replace="layouts::deepak"></nav>
+
+
+<div>
+<h4>Current Products</h4>
+
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Product Name</th>
+
+
+<th>Product Category</th>
+
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr th:each="aProduct:${productList}">
+
+<td th:text="${aProduct.name}"/>
+
+<td th:text="${aProduct.category}"/>
+
+
+</tr>
+
+
+</tbody>
+
+
+
+
+</table>
+
+</div>
+
+
+<div>
+<h4>Current Customers</h4>
+
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>First Name</th>
+
+
+<th>Last Name</th>
+
+
+
+
+<th>Email</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr th:each="aCustomer:${customerList}">
+
+<td th:text="${aCustomer.firstName}"/>
+
+<td th:text="${aCustomer.lastName}"/>
+
+
+<td th:text="${aCustomer.email}"/>
+
+
+</tr>
+
+
+</tbody>
+
+
+
+
+</table>
+
+</div>
+
+</body>
+
+</html>

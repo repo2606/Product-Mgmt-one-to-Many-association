@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="layouts :: fooheader"> 
+	</head>
+	
+	<body>
+	
+	<nav th:replace="layouts :: deepak"></nav>
+
+		<div class="container">
+			<h3>Product Directory</h3>
+			<hr>
+			
+			<!--  Add New Product Button -->
+			<a th:href="@{/products/new}"
+				class="btn btn-primary btn-sm mb-3"> 
+				New Product
+			</a>
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Product Name</th>
+						<th>Product Category</th>
+					</tr>
+				</thead>		
+				<tbody>
+					<tr th:each="aProducts : ${products}">
+						<td th:text="${aProducts.name}"/>
+						<td th:text="${aProducts.category}"/>
+					</tr>
+				</tbody>
+			
+			</table>
+		</div>
+	</body>
+	
+</html>
