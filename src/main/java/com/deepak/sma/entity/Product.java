@@ -85,13 +85,4 @@ public class Product {
 }
 
 
-/*
- * productId: unique indentifier, outsource responsibilty to DB - generte incremental id
- * 
- * @GeneratedValue(strategy=GenerationType.AUTO) :java objects to Database table
- * 
- * class structure mapped into DB as Table structure
- * 
- * @entity- spring will treat this class and creates table in DB
- * 
- * */
+
